@@ -33,7 +33,7 @@ std = [item * value_scale for item in std]
 inf_transform = [Resize(473),ToTensor(),Normalize(mean, std)]
 
 model = SAGNN(device_number=1)
-model.load_state_dict(torch.load("./exp29/pascal/split0_resnet50/model/train_epoch_96_0.6970575280084821.pth",map_location="cuda:1")["state_dict"])
+model.load_state_dict(torch.load("best_model_path",map_location="cuda:1")["state_dict"])
 model = model.cuda(1)
 model.eval()
 transforms = Compose(inf_transform)
